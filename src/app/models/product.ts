@@ -5,4 +5,5 @@ export class Product {
     price: number = 0;
     image_url: string = "";
 
+
 }
