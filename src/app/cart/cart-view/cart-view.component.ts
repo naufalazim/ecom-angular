@@ -15,7 +15,7 @@ export class CartViewComponent implements OnInit {
 
   constructor(private cartService: CartService) {}
 
-  ngOnInit(): void {  
+  ngOnInit(): void {
       this.cartService.getCartItems().subscribe(data => {
 
         this.cartItems = data;
@@ -31,6 +31,17 @@ export class CartViewComponent implements OnInit {
     }
     return total;
   }
+
+  //problem function:
+  clearCart(): void {
+    this.cartService.clearCart().subscribe();
+  }
+
+  //test:
+  testMethod(): void {
+    console.log('Test method called');
+  }
+
 
 
 }
