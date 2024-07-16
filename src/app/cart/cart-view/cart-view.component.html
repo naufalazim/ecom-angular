@@ -15,7 +15,17 @@
                 <span class="price" matListItemLine>{{totalPrice | currency:"MYR "}}</span>
             </mat-list-item>
 
-        <mat-card-actions>
+            <mat-card-actions>
+              <mat-list-item class="text-right">
+                <button mat-flat-button (click)="clearCart()">Clear</button>
+             </mat-list-item>
+            </mat-card-actions>
+
+          <mat-list-item class="text-right">
+            <button mat-flat-button (click)="testMethod()">Checkout</button>
+         </mat-list-item>
+
+      <mat-card-actions>
           <button mat-raised-button (click)="clearCart()">Clear</button>
           <mat-list-item>
         <button mat-raised-button color="accent">CheckOut</button>
