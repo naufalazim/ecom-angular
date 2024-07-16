@@ -7,6 +7,7 @@ import { FlexModule } from '@angular/flex-layout';
 
 
 
+
 @NgModule({
   declarations: [
     ProductListComponent
