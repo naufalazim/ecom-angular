@@ -2,12 +2,22 @@
     <h1>Your Cart</h1>
 
     <mat-card>
+
         <mat-list>
             <mat-list-item *ngFor="let item of cartItems">
                 <span matListItemTitle>{{item.name}}</span>
-                <span matListItemLine>{{item.price | currency:"RM "}}</span>
+                <span matListItemLine>{{item.price | currency:"MYR "}}</span>
             </mat-list-item>
         </mat-list>
+
+
+        <mat-list>
+            <mat-list-item>
+                <span class="price" matListItemTitle>Total MYR</span>
+                <span class="price" matListItemLine>{{totalPrice | currency:"MYR "}}</span>
+            </mat-list-item>
+        </mat-list>
+
     </mat-card>
 
 </div>
