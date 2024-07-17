@@ -13,6 +13,7 @@ export class ProductListComponent implements OnInit {
 
   //initialize empty array:
   products: Product[] = []
+  filteredProduct: Product[] = []
   
   constructor(
     private productService: ProductService,
@@ -24,11 +25,13 @@ export class ProductListComponent implements OnInit {
     //Suscribe to get the data:
     this.productService.getProducts().subscribe(data => {
       this.products = data;
+      this.filteredProduct = data;
     });
   }
 
   addToCart(product: Product): void {
     this.cartService.addToCart(product).subscribe({
+      //callback function:
       next: () => {
         this.snackbar.open("Added to cart 🍓🍓🍓", "" , {
           duration: 2000,
@@ -38,5 +41,21 @@ export class ProductListComponent implements OnInit {
       }
     });
   }
+
+
+  //search function:
+  applyFilter(event: Event) : void {
+    let searchTerm = (event.target as HTMLInputElement).value;
+    searchTerm = searchTerm.toLocaleLowerCase();
+
+    this.filteredProduct = this.products.filter(
+      product => product.name.toLowerCase().includes(searchTerm)
+    )
+  } 
+
+
+
+
+
 
 }
