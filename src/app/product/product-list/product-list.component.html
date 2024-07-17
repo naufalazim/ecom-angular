@@ -4,9 +4,13 @@
 
     <h2>Collection</h2>
 
+    <mat-form-field>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Search Item">
+    </mat-form-field>
+
     <div fxLayout="row wrap" fxLayoutGap="75px grid">
 
-        <div *ngFor="let product of products">
+        <div *ngFor="let product of filteredProduct">
             <mat-card class="product-card" (click)="addToCart(product)" >
                 <img mat-card-image src="assets/images/{{product.image_url}}">
                 <mat-card-content>
