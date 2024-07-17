@@ -41,7 +41,7 @@ export class ProductListComponent implements OnInit {
       }
     });
   }
-
+ 
 
   //search function:
   applyFilter(event: Event) : void {
