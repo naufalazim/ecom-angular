@@ -32,16 +32,12 @@ export class CartViewComponent implements OnInit {
     return total;
   }
 
-  //problem function:
   clearCart(): void {
     this.cartService.clearCart().subscribe();
   }
 
-  //test:
-  testMethod(): void {
-    console.log('Test method called');
+  checkout(): void {
+    this.cartService.checkOut(this.cartItems).subscribe();
   }
-
-
 
 }
