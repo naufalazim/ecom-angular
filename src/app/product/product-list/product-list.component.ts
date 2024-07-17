@@ -14,6 +14,7 @@ export class ProductListComponent implements OnInit {
   //initialize empty array:
   products: Product[] = []
   filteredProduct: Product[] = []
+  sortOrder: string = ""
   
   constructor(
     private productService: ProductService,
@@ -51,11 +52,19 @@ export class ProductListComponent implements OnInit {
     this.filteredProduct = this.products.filter(
       product => product.name.toLowerCase().includes(searchTerm)
     )
+
+    this.sortProducts(this.sortOrder)
   } 
 
 
-
-
-
+  sortProducts(sortValue: string): void {
+    this.sortOrder = sortValue;
+  
+    if (this.sortOrder === "priceLowHigh") {
+      this.filteredProduct.sort((a, b) => a.price - b.price);
+    } else if (this.sortOrder === "priceHighLow") {
+      this.filteredProduct.sort((a, b) => b.price - a.price);
+    }
+  }
 
 }
